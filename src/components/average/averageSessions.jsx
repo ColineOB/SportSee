@@ -2,9 +2,8 @@ import React, { PureComponent, useEffect, useState } from 'react';
 import UserAverageSessions from '../../api/user/AverageSessionsApi';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
-function Average(params) {
+function Average({id}) {
     const [data, setData] = useState(null)
-    const id = 12;
     
   useEffect(() => {
     const fetchData = async () => {

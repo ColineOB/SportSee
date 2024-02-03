@@ -3,9 +3,8 @@ import UserActivity from '../../api/user/ActivityApi';
 import { BarChart, Bar, Rectangle, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
 
-function Activity(params) {
+function Activity({id}) {
     const [data, setData] = useState(null);
-    const id = 12;
     
   useEffect(() => {
     const fetchData = async () => {

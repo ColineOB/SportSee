@@ -1,0 +1,22 @@
+.header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 91px;
+    width: 100%;
+    background-color: black;
+}
+
+.header-logo {
+    width: 178px;
+    height: 69px;
+    margin-right: 10%;
+}
+
+.header p {
+    cursor: pointer;
+    color: white;
+    font-family: 'Roboto';
+    font-weight: 500;
+    font-size: 24px;
+}

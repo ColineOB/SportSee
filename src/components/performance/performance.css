@@ -1,0 +1,9 @@
+.performance {
+    background-color: #282D30;
+    border-radius: 20px;
+}
+.performance-text {
+    font-family: 'roboto';
+    font-size: 12px;
+    color: white;
+}

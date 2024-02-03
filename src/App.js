@@ -18,13 +18,25 @@ function App() {
       }
     };
     fetchData();
+    console.log('user1UseEffect', user1);
+    console.log('user2UseEffect',user2);
   },[])
 
-  console.log(user1.data.userInfos.firstName);
-  console.log(user2.data.userInfos.firstName);
+
   return (
     <div className="App">
-      <Link to={"profil?id="+ user1.data.id}>{user1.data.userInfos.firstName}</Link>
+      {user1 && user1.data && user1.data.userInfos ? (
+        <Link to={"/profil?id=" + user1.data.id}>
+          <p>{user1.data.userInfos.firstName}</p>
+        </Link>
+      ):('')
+      }
+      {user2 && user2.data && user2.data.userInfos ? (
+        <Link to={"/profil?id=" + user2.data.id}>
+          <p>{user2.data.userInfos.firstName}</p>
+        </Link>
+      ):('')
+      }
     </div>
   );
 }

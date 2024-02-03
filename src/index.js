@@ -3,11 +3,24 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import Profil from './Pages/profil';
+import Header from './components/header/header';
+import Menu from './components/menu/menu';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <Router>
+      <Header />
+      <Menu />
+      <div className='content-margin'>
+      <Routes>
+      <Route path='/' element={<App />} />
+      <Route path='/profil' element={<Profil />} />
+      </Routes>
+      </div>
+    </Router>
   </React.StrictMode>
 );
 
