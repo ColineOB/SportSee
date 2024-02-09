@@ -28,7 +28,7 @@ function Performance({id}) {
     return (
         <>
                 <RadarChart className='performance' height={500} width={500}  outerRadius="80%" data={data}>
-                    <PolarGrid  style={{stroke:'white'}} />
+                    <PolarGrid  style={{stroke:'white'}} radialLines={false}/>
                     <PolarAngleAxis dataKey="kind" tickFormatter={DataKey} tick={{fill:'white'}}/>
                     <PolarRadiusAxis axisLine={false} tick={false} tickCount={6} />
                     <Radar dataKey="value" fill="#FF0000" fillOpacity={0.7} />
