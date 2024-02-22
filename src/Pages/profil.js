@@ -11,10 +11,13 @@ function Profil() {
     const [searchParams] = useSearchParams();
     const [data, setData] = useState(null);
     const id = searchParams.get("id");
+    console.log('id:', id);
 
     useEffect(() => {
+        console.log('useeffect');
         const fetchData = async () => {
         try {
+            console.log('try');
             const userData = await UserApi(id);
             console.log(userData);
             setData(userData.data);
@@ -29,7 +32,7 @@ function Profil() {
 
     return (
         <>
-        <h1>Bonjour <span>{data.userInfos.firstName}</span></h1>
+        {/* <h1>Bonjour <span>{data.userInfos.firstName}</span></h1> */}
         <p>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
             <Activity id={id}></Activity>
             <Average id={id}></Average>
