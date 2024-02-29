@@ -1,6 +1,6 @@
 import { USER_API } from "../addressApi";
 
-async function UserApi(id) {
+async function UserProfil(id) {
     let user = null;
     try {
         const response = await fetch(USER_API + id, {
@@ -15,4 +15,4 @@ async function UserApi(id) {
     
 }
 
-export default UserApi;
+export default UserProfil;

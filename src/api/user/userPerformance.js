@@ -6,7 +6,8 @@ async function UserPerformance(id) {
         const response = await fetch(USER_API + id + PERFORMANCE, {
             method: 'GET'
         })
-        performance = await response.json();
+        console.log(response);
+        performance = (await response.json()).data;
     
     } catch(error) {
         console.log('error');

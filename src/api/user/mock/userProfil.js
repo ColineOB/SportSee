@@ -1,6 +1,6 @@
-import {USER_MAIN_DATA} from "../data";
+import {USER_MAIN_DATA} from "./data";
 
-async function UserApi(id) {
+async function UserProfil(id) {
     let user = null;
     try {
         user = USER_MAIN_DATA.find(el => el.id === id);
@@ -12,4 +12,4 @@ async function UserApi(id) {
     
 }
 
-export default UserApi;
+export default UserProfil;

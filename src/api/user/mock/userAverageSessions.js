@@ -1,4 +1,4 @@
-import {USER_AVERAGE_SESSIONS} from "../data";
+import {USER_AVERAGE_SESSIONS} from "./data";
 
 async function UserAverageSessions(id) {
     let averageSessions = null;

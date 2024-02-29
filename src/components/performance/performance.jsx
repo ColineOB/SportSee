@@ -1,5 +1,7 @@
 import React, { PureComponent, useEffect, useState } from 'react';
-import UserPerformance from '../../api/user/PerformanceApi';
+// import UserPerformance from '../../api/user/PerformanceApi';
+// import UserPerformance from '../../mock/user/PerformanceApi';
+import userApi from '../../api/userApi';
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer, Label } from 'recharts';
 import './performance.css'
 
@@ -10,9 +12,11 @@ function Performance({id}) {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const userData = await UserPerformance(id);
-        setData(userData.data.data);
-        setKind(userData.data.kind);
+        // const userData = await UserPerformance(id);
+        const userData = await userApi().performance(id);
+        console.log(userData);
+        setData(userData.data);
+        setKind(userData.kind);
       } catch (error) {
         console.error(error);
       }
