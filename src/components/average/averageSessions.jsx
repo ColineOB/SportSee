@@ -1,15 +1,15 @@
 import React, { PureComponent, useEffect, useState } from 'react';
-import UserAverageSessions from '../../api/user/AverageSessionsApi';
+import userApi from '../../api/userApi'
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
-function Average({id}) {
+function Average({id, mock}) {
     const [data, setData] = useState(null)
     
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const userData = await UserAverageSessions(id);
-        setData(userData.data.sessions)
+        const userData = await userApi(mock).averageSessions(id)
+        setData(userData.sessions)
       } catch (error) {
         console.error(error);
       }

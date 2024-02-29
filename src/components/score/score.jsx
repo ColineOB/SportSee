@@ -1,18 +1,19 @@
 import React, { useEffect, useState } from 'react';
-import UserApi from '../../api/user/userApi';
+import UserApi from '../../api/user/userProfil';
+import userApi from '../../api/userApi'
 import { RadialBarChart, RadialBar, Legend, ResponsiveContainer } from 'recharts';
 
 
-function Score({id}) {
+function Score({id,mock}) {
     const [data, setData] = useState(null);
     const [todayScore, setTodayScore] = useState([]);
 
     useEffect(() => {
         const fetchData = async () => {
         try {
-            const userData = await UserApi(id);
+            const userData = await userApi(mock).profil(id);
             console.log(userData);
-            setData(userData.data);
+            setData(userData);
         } catch (error) {
             console.error(error);
         }

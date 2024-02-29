@@ -5,15 +5,14 @@ import userApi from '../../api/userApi';
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer, Label } from 'recharts';
 import './performance.css'
 
-function Performance({id}) {
+function Performance({id, mock}) {
     const [data, setData] = useState(null)
     const [kind, setKind] = useState(null)
     
   useEffect(() => {
     const fetchData = async () => {
       try {
-        // const userData = await UserPerformance(id);
-        const userData = await userApi().performance(id);
+        const userData = await userApi(mock).performance(id);
         console.log(userData);
         setData(userData.data);
         setKind(userData.kind);

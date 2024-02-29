@@ -7,10 +7,10 @@ async function UserActivity(id) {
         const response = await fetch(USER_API + id + ACTIVITY, {
             method: 'GET'
         })
-        activity = await response.json();
+        activity = (await response.json()).data;
     
     } catch(error) {
-        console.log('error');
+        console.log('error', error);
     }
     return activity;
     

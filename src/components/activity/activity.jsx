@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from 'react';
-import UserActivity from '../../api/user/ActivityApi';
+import userApi from '../../api/userApi'
 // import UserActivity from '../../mock/user/ActivityApi';
 import { BarChart, Bar, Rectangle, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
 
-function Activity({id}) {
+function Activity({id, mock}) {
     const [data, setData] = useState(null);
     
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const userData = await UserActivity(id);
-        setData(userData.data.sessions)
+        const userData = await userApi().activity(id, mock)
+        setData(userData.sessions)
       } catch (error) {
         console.error(error);
       }

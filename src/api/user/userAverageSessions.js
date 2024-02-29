@@ -6,7 +6,7 @@ async function UserAverageSessions(id) {
         const response = await fetch(USER_API + id + AVERAGE, {
             method: 'GET'
         })
-        averageSessions = await response.json();
+        averageSessions = (await response.json()).data;
     
     } catch(error) {
         console.log('error');
