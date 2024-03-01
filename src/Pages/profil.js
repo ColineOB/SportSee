@@ -16,9 +16,7 @@ function Profil() {
     useEffect(() => {
         const fetchData = async () => {
         try {
-            console.log(id, mock);
             const userData = await userApi(mock).profil(id);
-            console.log(userData);
             setData(userData);
         } catch (error) {
             console.error(error);

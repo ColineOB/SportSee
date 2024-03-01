@@ -3,7 +3,6 @@ import { USER_API } from "../addressApi";
 async function UserProfil(id) {
     let user = null;
     try {
-        console.log('api');
         const response = await fetch(USER_API + id, {
             method: 'GET'
         })

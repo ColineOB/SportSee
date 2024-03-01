@@ -17,7 +17,19 @@ function Activity({id, mock}) {
       }
     }
     fetchData();
-    },[])
+    },[id, mock])
+
+    const CustomTooltip = ({ active, payload, label }) => {
+      if (active && payload && payload.length) {
+        return (
+          <div className="custom-tooltip">
+            <p className="label">{payload[0].value}kg</p>
+            <p className="label">{payload[1].value}Kcal</p>
+          </div>
+        )
+      }
+
+    }
 
     return (
         <>
@@ -28,7 +40,7 @@ function Activity({id, mock}) {
             >
                 <XAxis tickLine={false} axisLine={false} />
                 <YAxis orientation='right' tickLine={false} axisLine={false} />
-                <Tooltip />
+                <Tooltip content={<CustomTooltip />} contentStyle={{ backgroundColor:"#FF0000", color:"#fff" }} />
                 <Legend iconType='circle' iconSize={10} verticalAlign='top' align='right' wrapperStyle={{paddingBottom: 20}} />
                 <Bar dataKey="kilogram" fill="#282D30" barSize={10} radius={[20, 20, 0, 0]} />
                 <Bar dataKey="calories" fill="#FF0000" barSize={10} radius={[20, 20, 0, 0]} />

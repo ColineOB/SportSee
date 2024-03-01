@@ -1,6 +1,7 @@
 import React, { PureComponent, useEffect, useState } from 'react';
 import userApi from '../../api/userApi'
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import './averageSessions.css'
 
 function Average({id, mock}) {
     const [data, setData] = useState(null)
@@ -23,8 +24,8 @@ function Average({id, mock}) {
         }
         const data = props.payload[0].payload
         return (
-            <div>
-                <p>{data.sessionLength} min</p>
+            <div className='custom-tooltip'>
+                <p className='label'>{data.sessionLength} min</p>
             </div>
         )
     }
@@ -40,16 +41,22 @@ function Average({id, mock}) {
         }
     }
 
+    const styles = {
+        r: 5,
+        border: '5px solid rgba(0, 0, 0, 1)',
+    }
+
     return (
         <>
             <LineChart
+                className='average'
                 width={500}
                 height={300}
                 data={data}
             >
                 <XAxis dataKey='day' tickFormatter={DataKey} tickLine={false} axisLine={false} />
                 <Tooltip content={<TooltipContent />}/>
-                <Line type="monotone" dataKey="sessionLength"  stroke="#8884d8" strokeWidth={2}  dot={false}   activeDot={{ r: 8 }} />
+                <Line type="monotone" dataKey="sessionLength"  stroke="#fff" strokeWidth={3} dot={false} activeDot={{r:7, stroke:'white', strokeWidth:'15', strokeOpacity:'0.3'}} />
             </LineChart>
         </>
     )
