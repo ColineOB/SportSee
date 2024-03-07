@@ -4,26 +4,27 @@ import Activity from '../components/activity/activity';
 import Performance from '../components/performance/performance';
 import Score from '../components/score/score';
 import { useSearchParams } from 'react-router-dom';
-import userApi from '../api/userApi';
+import useUserApi from '../api/useUserApi';
+import '../App.css'
 
 
 function Profil() {
     const [searchParams] = useSearchParams();
     const [data, setData] = useState(null);
     const id = Number(searchParams.get("id"));
-    const mock = (searchParams.get("mock") === "true");
+    const userApi = useUserApi();
 
     useEffect(() => {
         const fetchData = async () => {
         try {
-            const userData = await userApi(mock).profil(id);
+            const userData = await userApi.profil(id);
             setData(userData);
         } catch (error) {
             console.error(error);
         }
         };
         fetchData();
-    },[id, mock])
+    },[id])
 
     if (!data) {
         return null
@@ -33,10 +34,23 @@ function Profil() {
         <>
         <h1>Bonjour <span>{data.userInfos.firstName}</span></h1>
         <p>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
-            <Activity id={id} mock={mock}></Activity>
-            <Average id={id} mock={mock}></Average>
-            <Performance id={id} mock={mock}></Performance>
-            <Score id={id} mock={mock}></Score>
+        <div className='profil'>
+            <div className='profil-row'>
+                <Activity id={id}></Activity>
+                <div className='profil-row_int'>
+                    <Average id={id}></Average>
+                    <Performance id={id}></Performance>
+                    <Score id={id}></Score>
+                </div>
+            </div>
+            
+            <div className='profil-column'>
+                <Average id={id}></Average>
+                <Performance id={id}></Performance>
+                <Score id={id}></Score>
+            </div>
+        </div>
+
         </>
     )
 }

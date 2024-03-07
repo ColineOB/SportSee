@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import userApi from '../../api/userApi'
 // import UserActivity from '../../mock/user/ActivityApi';
 import { BarChart, Bar, Rectangle, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import './activity.css'
 
 
 function Activity({id, mock}) {
@@ -10,7 +11,7 @@ function Activity({id, mock}) {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const userData = await userApi().activity(id, mock)
+        const userData = await userApi(mock).activity(id)
         setData(userData.sessions)
       } catch (error) {
         console.error(error);
@@ -28,8 +29,8 @@ function Activity({id, mock}) {
           </div>
         )
       }
-
     }
+
 
     return (
         <>
@@ -42,8 +43,8 @@ function Activity({id, mock}) {
                 <YAxis orientation='right' tickLine={false} axisLine={false} />
                 <Tooltip content={<CustomTooltip />} contentStyle={{ backgroundColor:"#FF0000", color:"#fff" }} />
                 <Legend iconType='circle' iconSize={10} verticalAlign='top' align='right' wrapperStyle={{paddingBottom: 20}} />
-                <Bar dataKey="kilogram" fill="#282D30" barSize={10} radius={[20, 20, 0, 0]} />
-                <Bar dataKey="calories" fill="#FF0000" barSize={10} radius={[20, 20, 0, 0]} />
+                <Bar dataKey="kilogram" fill="#282D30" barSize={10} radius={[20, 20, 0, 0]} name='Poids (kg)' />
+                <Bar dataKey="calories" fill="#FF0000" barSize={10} radius={[20, 20, 0, 0]} name='Calories brûlées (kCal)'/>
             </BarChart>
         </>
     )
