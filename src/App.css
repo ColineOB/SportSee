@@ -1,0 +1,19 @@
+.profil {
+    display: flex;
+  }
+  
+  .profil-row {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .profil-row_int {
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .profil-column {
+    display: flex;
+    flex-direction: column;
+  }
+  
