@@ -75,9 +75,8 @@ function Average({id, mock}) {
                     <stop offset='99%' stopColor='white' stopOpacity={1} />
                     </linearGradient>
                 </defs>
-                <ReferenceArea x1={perc} x2={7}  y1={-10} y2={700} ifOverflow='visible' fill="#000000" fillOpacity={0.2} />
-                
-                <Line type="monotone" dataKey="sessionLength"  stroke="#fff" strokeWidth={3} dot={false} activeDot={{r:7, stroke:'white', strokeWidth:'15', strokeOpacity:'0.3'}} />
+                <ReferenceArea x1={perc} x2={7} y1={-10} y2={700} ifOverflow='visible' fill="#000000" fillOpacity={0.2} />
+                <Line type="basic" dataKey="sessionLength"  stroke="url(#splitColor)" strokeWidth={3} dot={false} activeDot={{r:7, stroke:'white', strokeWidth:'15', strokeOpacity:'0.3'}} />
             </LineChart>
         </section>
     )
