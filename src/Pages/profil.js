@@ -7,13 +7,11 @@ import { useSearchParams } from 'react-router-dom';
 import useUserApi from '../api/useUserApi';
 import '../App.css'
 
-
 function Profil() {
     const [searchParams] = useSearchParams();
     const [data, setData] = useState(null);
     const id = Number(searchParams.get("id"));
     const userApi = useUserApi();
-
     useEffect(() => {
         const fetchData = async () => {
         try {
