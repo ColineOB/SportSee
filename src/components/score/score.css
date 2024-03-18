@@ -1,4 +1,24 @@
 .score {
+    position: relative;
+    height: 250px;
+    width: 250px;
+}
+
+.score_chart {
     background-color: #FBFBFB;
     border-radius: 20px;
+}
+
+.score p {
+    width: 70px;
+    position: absolute;
+    text-align: center;
+    color: #74798C;
+    top: 57%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 5;
+    size: 16px;
+    line-height: 26px;
+    font-weight: 500;
 }

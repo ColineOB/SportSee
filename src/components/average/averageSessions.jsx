@@ -59,8 +59,8 @@ function Average({id, mock}) {
             <h2>Durée moyenne des sessions</h2>
             <LineChart
                 className='average_chart'
-                width={500}
-                height={500}
+                width={250}
+                height={250}
                 data={data}
                 margin={{ top: 20, left: 20, right: 20, bottom: 20 }}
                 onMouseMove={onMouseMove}

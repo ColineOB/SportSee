@@ -1,7 +1,7 @@
 import React, { PureComponent, useEffect, useState } from 'react';
 import './macroCount.css'
 
-function macroCount(params) {
+function Macro(params) {
     return (
         <>
         test
@@ -9,4 +9,4 @@ function macroCount(params) {
     )
 }
 
-export default macroCount
+export default Macro

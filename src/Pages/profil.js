@@ -5,6 +5,7 @@ import Performance from '../components/performance/performance';
 import Score from '../components/score/score';
 import { useSearchParams } from 'react-router-dom';
 import useUserApi from '../api/useUserApi';
+import Macro from '../components/macroCount/macroCount';
 import '../App.css'
 
 function Profil() {
@@ -41,11 +42,10 @@ function Profil() {
                     <Score id={id}></Score>
                 </div>
             </div>
-            
             <div className='profil-column'>
-                <Average id={id}></Average>
-                <Performance id={id}></Performance>
-                <Score id={id}></Score>
+                <Macro></Macro>
+                <Macro></Macro>
+                <Macro></Macro>
             </div>
         </div>
         </>
