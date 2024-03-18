@@ -6,6 +6,8 @@ import Score from '../components/score/score';
 import { useSearchParams } from 'react-router-dom';
 import useUserApi from '../api/useUserApi';
 import '../App.css'
+import useUserApi from '../api/useUserApi';
+import '../App.css'
 
 
 function Profil() {
@@ -13,10 +15,12 @@ function Profil() {
     const [data, setData] = useState(null);
     const id = Number(searchParams.get("id"));
     const userApi = useUserApi();
+    const userApi = useUserApi();
 
     useEffect(() => {
         const fetchData = async () => {
         try {
+            const userData = await userApi.profil(id);
             const userData = await userApi.profil(id);
             setData(userData);
         } catch (error) {
@@ -24,6 +28,7 @@ function Profil() {
         }
         };
         fetchData();
+    },[id])
     },[id])
 
     if (!data) {
