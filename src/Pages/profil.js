@@ -43,14 +43,13 @@ function Profil() {
                     <Score id={id}></Score>
                 </div>
             </div>
-{/*             
+            
             <div className='profil-column'>
                 <Average id={id}></Average>
                 <Performance id={id}></Performance>
                 <Score id={id}></Score>
-            </div> */}
+            </div>
         </div>
-
         </>
     )
 }

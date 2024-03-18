@@ -20,6 +20,7 @@ function Average({id, mock}) {
     },[])
 
 
+
     const TooltipContent = (props) => {
         if (!props.active || !props.payload) {
             return 
@@ -66,8 +67,8 @@ function Average({id, mock}) {
                 onMouseOut={onMouseOut}
                 style={{ backgroundColor: '#E60000' }}
             >
-                <XAxis dataKey='day' stroke='#fff' tickFormatter={DataKey} tickLine={false} axisLine={false} />
-                <Tooltip content={<TooltipContent />} cursor={{ strokeWidth: 0 }}  />
+                <XAxis dataKey='day' tickFormatter={DataKey} tickLine={false} axisLine={false} />
+                <Tooltip content={<TooltipContent />}/>
                 <defs>
                     <linearGradient id='splitColor' x1='0' y1='0' x2='1' y2='0'>
                     <stop offset='1%' stopColor='white' stopOpacity={0.2} />
@@ -75,7 +76,8 @@ function Average({id, mock}) {
                     </linearGradient>
                 </defs>
                 <ReferenceArea x1={perc} x2={7}  y1={-10} y2={700} ifOverflow='visible' fill="#000000" fillOpacity={0.2} />
-                <Line type="basis" dataKey="sessionLength"  stroke="url(#splitColor)" strokeWidth={3} dot={false} activeDot={{r:7, stroke:'white', strokeWidth:'15', strokeOpacity:'0.3'}} />
+                
+                <Line type="monotone" dataKey="sessionLength"  stroke="#fff" strokeWidth={3} dot={false} activeDot={{r:7, stroke:'white', strokeWidth:'15', strokeOpacity:'0.3'}} />
             </LineChart>
         </section>
     )
