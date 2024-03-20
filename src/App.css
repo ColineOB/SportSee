@@ -1,3 +1,5 @@
+
+
 .profil {
     display: flex;
   }
@@ -5,15 +7,18 @@
   .profil-row {
     display: flex;
     flex-direction: column;
+    width: 70%;
   }
 
   .profil-row_int {
     display: flex;
     flex-direction: row;
+    justify-content: space-around;
   }
   
   .profil-column {
     display: flex;
     flex-direction: column;
+    width: 25%;
   }
   

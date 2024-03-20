@@ -43,9 +43,10 @@ function Profil() {
                 </div>
             </div>
             <div className='profil-column'>
-                <Macro></Macro>
-                <Macro></Macro>
-                <Macro></Macro>
+                <Macro name='Calories' data={data.keyData.calorieCount}></Macro>
+                <Macro name='Proteines' data={data.keyData.proteinCount}></Macro>
+                <Macro name='Glucides' data={data.keyData.carbohydrateCount}></Macro>
+                <Macro name='Lipides' data={data.keyData.lipidCount}></Macro>
             </div>
         </div>
         </>

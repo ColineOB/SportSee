@@ -1,0 +1,30 @@
+.macro {
+    background-color: #FBFBFB;
+    margin-bottom: 50px;
+    display: flex;
+    align-items: center;
+}
+
+.macro img {
+    margin:10%;
+    width: 100px;
+    height: 100px;
+}
+
+.macro-info {
+    display: block;
+}
+
+.macro-info_data {
+    font-size: 20px;
+    line-height: 24px;
+    font-weight: 700;
+    margin: 0;
+}
+
+.macro-info_text {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 24px;
+    margin: 2px 0;
+}
