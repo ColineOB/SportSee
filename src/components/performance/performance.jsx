@@ -29,14 +29,14 @@ function Performance({id, mock}) {
 
 
     return (
-        <>
+        <ResponsiveContainer width='30%' height={320}>
                 <RadarChart className='performance' height={250} width={250}  outerRadius="80%" data={data}>
                     <PolarGrid  style={{stroke:'white'}} radialLines={false}/>
                     <PolarAngleAxis dataKey="kind" tickFormatter={DataKey} tick={{fill:'white'}}/>
                     <PolarRadiusAxis axisLine={false} tick={false} tickCount={6} />
                     <Radar dataKey="value" fill="#FF0000" fillOpacity={0.7} />
                 </RadarChart>
-        </>
+        </ResponsiveContainer>
     )
 }
 

@@ -54,18 +54,21 @@ function Score({id,mock}) {
     return (
         <section className='score'>
         <p> de votre objectif</p>
-            <RadialBarChart className='score_chart' height={250} width={250}  innerRadius="50%" barSize={12} data={todayScore} startAngle={90} endAngle={Calcul(todayScore)}>
-            <RadialBar
-                minAngle={15}
-                // label={{ position: 'center', fill: '#282D30', formatter:{label}}
-                clockWise={true}
-                dataKey="todayScore"
-                cornerRadius={40}
-            >
-                <LabelList position='center' formatter={label} style={{fontSize:'26', fill:'#282D30', height:'26', fontWeight:'700'}} />
-            </RadialBar>
-            
-            </RadialBarChart>
+        
+            <ResponsiveContainer width='100%' height={320}>
+                <RadialBarChart className='score_chart' height={250} width={250}  innerRadius="50%" barSize={12} data={todayScore} startAngle={90} endAngle={Calcul(todayScore)}>
+                <RadialBar
+                    minAngle={15}
+                    // label={{ position: 'center', fill: '#282D30', formatter:{label}}
+                    clockWise={true}
+                    dataKey="todayScore"
+                    cornerRadius={40}
+                >
+                    <LabelList position='center' formatter={label} style={{fontSize:'26', fill:'#282D30', height:'26', fontWeight:'700'}} />
+                </RadialBar>
+                
+                </RadialBarChart>
+            </ResponsiveContainer>
         </section>
     )
 }

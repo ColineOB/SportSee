@@ -57,6 +57,7 @@ function Average({id, mock}) {
     return (
         <section className='average'>
             <h2>Durée moyenne des sessions</h2>
+          <ResponsiveContainer width='100%' height={320}>
             <LineChart
                 className='average_chart'
                 width={250}
@@ -78,6 +79,7 @@ function Average({id, mock}) {
                 <ReferenceArea x1={perc} x2={7} y1={-10} y2={700} ifOverflow='visible' fill="#000000" fillOpacity={0.2} />
                 <Line type="basic" dataKey="sessionLength"  stroke="url(#splitColor)" strokeWidth={3} dot={false} activeDot={{r:7, stroke:'white', strokeWidth:'15', strokeOpacity:'0.3'}} />
             </LineChart>
+          </ResponsiveContainer>
         </section>
     )
 }

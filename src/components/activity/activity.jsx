@@ -33,7 +33,7 @@ function Activity({id, mock}) {
 
 
     return (
-        <>
+        <ResponsiveContainer width='100%' height={320}>
             <BarChart
             width={1000}
             height={300}
@@ -46,7 +46,7 @@ function Activity({id, mock}) {
                 <Bar dataKey="kilogram" fill="#282D30" barSize={10} radius={[20, 20, 0, 0]} name='Poids (kg)' />
                 <Bar dataKey="calories" fill="#FF0000" barSize={10} radius={[20, 20, 0, 0]} name='Calories brûlées (kCal)'/>
             </BarChart>
-        </>
+        </ResponsiveContainer>
     )
 }
 
