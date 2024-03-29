@@ -2,18 +2,21 @@
 
 .profil {
     display: flex;
+    margin-top: 80px;
   }
   
   .profil-row {
     display: flex;
     flex-direction: column;
     width: 70%;
+    margin-right: 30px;
   }
 
   .profil-row_int {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
+    margin-top: 30px;
   }
   
   .profil-column {

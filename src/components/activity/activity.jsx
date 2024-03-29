@@ -31,22 +31,30 @@ function Activity({id, mock}) {
       }
     }
 
+    const renderColorfulLegendText = (value) => {
+      return <span style={{color:'#282D30'}}>{value}</span>;
+    };
 
     return (
+      <section className='activity'>
         <ResponsiveContainer width='100%' height={320}>
             <BarChart
             width={1000}
             height={300}
             data={data}
+            barGap={12}
+            style={{ backgroundColor: '#FBFBFB', borderRadius:'10px' }}
             >
+            <CartesianGrid strokeDasharray="2" vertical={false} />
                 <XAxis tickLine={false} axisLine={false} />
                 <YAxis orientation='right' tickLine={false} axisLine={false} />
                 <Tooltip content={<CustomTooltip />} contentStyle={{ backgroundColor:"#FF0000", color:"#fff" }} />
-                <Legend iconType='circle' iconSize={10} verticalAlign='top' align='right' wrapperStyle={{paddingBottom: 20}} />
+                <Legend iconType='circle' iconSize={10} verticalAlign='top' align='right' wrapperStyle={{paddingBottom: 20}} formatter={renderColorfulLegendText}/>
                 <Bar dataKey="kilogram" fill="#282D30" barSize={10} radius={[20, 20, 0, 0]} name='Poids (kg)' />
-                <Bar dataKey="calories" fill="#FF0000" barSize={10} radius={[20, 20, 0, 0]} name='Calories brûlées (kCal)'/>
+                <Bar dataKey="calories" fill="#FF0000" barSize={10} radius={[20, 20, 0, 0]} name='Calories brûlées (kCal)' />
             </BarChart>
         </ResponsiveContainer>
+      </section>
     )
 }
 
