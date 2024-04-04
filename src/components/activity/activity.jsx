@@ -37,6 +37,7 @@ function Activity({id, mock}) {
 
     return (
       <section className='activity'>
+      <h2>Activité quotidienne</h2>
         <ResponsiveContainer width='100%' height={320}>
             <BarChart
             width={1000}
@@ -46,7 +47,7 @@ function Activity({id, mock}) {
             style={{ backgroundColor: '#FBFBFB', borderRadius:'10px' }}
             >
             <CartesianGrid strokeDasharray="2" vertical={false} />
-                <XAxis tickLine={false} axisLine={false} />
+                <XAxis tickLine={false} axisLine={false} dataKey={value => data.indexOf(value) + 1} />
                 <YAxis orientation='right' tickLine={false} axisLine={false} />
                 <Tooltip content={<CustomTooltip />} contentStyle={{ backgroundColor:"#FF0000", color:"#fff" }} />
                 <Legend iconType='circle' iconSize={10} verticalAlign='top' align='right' wrapperStyle={{paddingBottom: 20}} formatter={renderColorfulLegendText}/>

@@ -26,7 +26,12 @@ function Profil() {
     },[id])
 
     if (!data) {
-        return null
+        return (
+            <>
+            <h1>Error</h1>
+            <p>Aucune données disponibles pour le moment</p>
+            </>
+        )
     }
 
     return (

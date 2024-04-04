@@ -14,7 +14,7 @@
     position: absolute;
     text-align: center;
     color: #74798C;
-    top: 57%;
+    top: 60%;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 5;
@@ -22,3 +22,14 @@
     line-height: 26px;
     font-weight: 500;
 }
+
+.score h2 {
+    width: 200px; 
+    position: absolute;
+    top: 10%;
+    left: 40%;
+    transform: translate(-50%, -50%);
+    z-index: 5;
+    size: 15px;
+    line-height: 24px;
+  }

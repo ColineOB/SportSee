@@ -28,7 +28,7 @@ function Macro({name, data}) {
                 break;
         }
     },[name])
-    console.log(image);
+    
     return (
         <section className='macro'>
             <img src={image} alt={name} />

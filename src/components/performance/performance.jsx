@@ -13,7 +13,6 @@ function Performance({id, mock}) {
     const fetchData = async () => {
       try {
         const userData = await userApi(mock).performance(id);
-        console.log(userData);
         setData(userData.data);
         setKind(userData.kind);
       } catch (error) {

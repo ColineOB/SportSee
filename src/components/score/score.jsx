@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import UserApi from '../../api/user/userProfil';
 import userApi from '../../api/userApi'
-import { RadialBarChart, RadialBar, Legend, ResponsiveContainer, LabelList,Tooltip } from 'recharts';
+import { RadialBarChart, RadialBar, Legend, ResponsiveContainer, LabelList, Scatter } from 'recharts';
 import './score.css'
 
 
@@ -13,7 +13,6 @@ function Score({id,mock}) {
         const fetchData = async () => {
         try {
             const userData = await userApi(mock).profil(id);
-            console.log(userData);
             setData(userData);
         } catch (error) {
             console.error(error);
@@ -40,6 +39,7 @@ function Score({id,mock}) {
 
     
     const Calcul = (nb) => {
+        console.log(nb);
     if (nb && nb[0] && nb[0].todayScore) {
         return (nb[0].todayScore*360/100+90)
     } else {
@@ -53,20 +53,18 @@ function Score({id,mock}) {
 
     return (
         <section className='score'>
+        <h2>Score</h2>
         <p> de votre objectif</p>
-        
             <ResponsiveContainer width='100%' height={320}>
-                <RadialBarChart className='score_chart' height={250} width={250}  innerRadius="50%" barSize={12} data={todayScore} startAngle={90} endAngle={Calcul(todayScore)}>
+                <RadialBarChart className='score_chart' cx="50%" cy="50%" height={250} width={250}  innerRadius="50%" outerRadius="80%" barSize={15} data={todayScore} startAngle={90} endAngle={Calcul(todayScore)}>
                 <RadialBar
                     minAngle={15}
-                    // label={{ position: 'center', fill: '#282D30', formatter:{label}}
-                    clockWise={true}
+                    // label={{ position: 'center', fill: '#282D30'}}
                     dataKey="todayScore"
                     cornerRadius={40}
                 >
                     <LabelList position='center' formatter={label} style={{fontSize:'26', fill:'#282D30', height:'26', fontWeight:'700'}} />
                 </RadialBar>
-                
                 </RadialBarChart>
             </ResponsiveContainer>
         </section>

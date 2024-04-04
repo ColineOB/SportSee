@@ -6,11 +6,17 @@ import './averageSessions.css'
 function Average({id, mock}) {
     const [data, setData] = useState(null)
     const [perc, setPerc] = useState(0);
+
+    var newSession = {
+      day: 8,
+      sessionLength: 30
+  };
     
   useEffect(() => {
     const fetchData = async () => {
       try {
         const userData = await userApi(mock).averageSessions(id)
+        userData.sessions.push(newSession)
         setData(userData.sessions)
       } catch (error) {
         console.error(error);
@@ -18,7 +24,6 @@ function Average({id, mock}) {
     }
     fetchData();
     },[])
-
 
 
     const TooltipContent = (props) => {
@@ -50,7 +55,8 @@ function Average({id, mock}) {
             case 4: return 'J';
             case 5: return 'V';
             case 6: return 'S';
-            default: return 'D';
+            case 7: return 'D';
+            default: return '';
         }
     }
 
@@ -68,16 +74,16 @@ function Average({id, mock}) {
                 onMouseOut={onMouseOut}
                 style={{ backgroundColor: '#E60000' }}
             >
-                <XAxis dataKey='day' tickFormatter={DataKey} tickLine={false} axisLine={false} />
-                <Tooltip content={<TooltipContent />}/>
+                <XAxis dataKey='day' tickFormatter={DataKey} tickLine={false} axisLine={false} tick={{fill:'white'}} padding={{right:-40}} />
+                <Tooltip content={<TooltipContent />} cursor={false}/>
                 <defs>
                     <linearGradient id='splitColor' x1='0' y1='0' x2='1' y2='0'>
                     <stop offset='1%' stopColor='white' stopOpacity={0.2} />
                     <stop offset='99%' stopColor='white' stopOpacity={1} />
                     </linearGradient>
                 </defs>
-                <ReferenceArea x1={perc} x2={7} y1={-100} y2={700} ifOverflow='visible' fill="#000000" fillOpacity={0.2} />
-                <Line type="basic" dataKey="sessionLength"  stroke="url(#splitColor)" strokeWidth={3} dot={false} activeDot={{r:7, stroke:'white', strokeWidth:'15', strokeOpacity:'0.3'}} />
+                <ReferenceArea x1={perc} x2={8} y1={-100} y2={700}  ifOverflow='visible' fill="#000000" fillOpacity={0.2} />
+                <Line type="bump" dataKey="sessionLength"  stroke="url(#splitColor)" strokeWidth={3} dot={false} activeDot={{r:7, stroke:'white', strokeWidth:'15', strokeOpacity:'0.3'}} />
             </LineChart>
           </ResponsiveContainer>
         </section>

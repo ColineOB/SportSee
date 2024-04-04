@@ -12,11 +12,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
-
 .content-margin {
   margin-left: 170px;
 }
@@ -25,4 +20,14 @@ code {
   color: white;
   background-color: #FF0000;
   padding: 10px;
+}
+
+h2 {
+  font-weight: 500;
+  line-height: 24px;
+}
+h1 {
+  font-size: 48px;
+  line-height: 24px;
+  font-weight: 500;
 }
