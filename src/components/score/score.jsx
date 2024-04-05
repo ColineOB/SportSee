@@ -1,19 +1,19 @@
 import React, { useEffect, useState } from 'react';
-import UserApi from '../../api/user/userProfil';
-import userApi from '../../api/userApi'
+import useUserApi from '../../api/useUserApi';
 import { PieChart, Pie, Sector, Cell, ResponsiveContainer, LabelList} from 'recharts';
 import './score.css'
 
 
 function Score({id,mock}) {
     const [data, setData] = useState(null);
-    const [round, setRound] = useState([{todayScore: 1}]);
+    const round = [{todayScore: 1}];
     const [todayScore, setTodayScore] = useState([]);
+    const userApi = useUserApi();
 
     useEffect(() => {
         const fetchData = async () => {
         try {
-            const userData = await userApi(mock).profil(id);
+            const userData = await userApi.profil(id);
             setData(userData);
         } catch (error) {
             console.error(error);
@@ -40,7 +40,6 @@ function Score({id,mock}) {
 
     
     const Calcul = (nb) => {
-        console.log(nb);
     if (nb && nb[0] && nb[0].todayScore) {
         return (nb[0].todayScore*360/100+90)
     } else {

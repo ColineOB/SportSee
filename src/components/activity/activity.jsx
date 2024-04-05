@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import userApi from '../../api/userApi'
+import useUserApi from '../../api/useUserApi';
 // import UserActivity from '../../mock/user/ActivityApi';
 import { BarChart, Bar, Rectangle, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import './activity.css'
@@ -7,11 +7,12 @@ import './activity.css'
 
 function Activity({id, mock}) {
     const [data, setData] = useState(null);
+    const userApi = useUserApi();
     
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const userData = await userApi(mock).activity(id)
+        const userData = await userApi.activity(id)
         setData(userData.sessions)
       } catch (error) {
         console.error(error);

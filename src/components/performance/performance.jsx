@@ -1,18 +1,17 @@
 import React, { PureComponent, useEffect, useState } from 'react';
-// import UserPerformance from '../../api/user/PerformanceApi';
-// import UserPerformance from '../../mock/user/PerformanceApi';
-import userApi from '../../api/userApi';
+import useUserApi from '../../api/useUserApi';
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer, Label } from 'recharts';
 import './performance.css'
 
 function Performance({id, mock}) {
     const [data, setData] = useState(null)
     const [kind, setKind] = useState(null)
+    const userApi = useUserApi();
     
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const userData = await userApi(mock).performance(id);
+        const userData = await userApi.performance(id);
         setData(userData.data);
         setKind(userData.kind);
       } catch (error) {

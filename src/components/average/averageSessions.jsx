@@ -1,11 +1,12 @@
 import React, { PureComponent, useEffect, useState } from 'react';
-import userApi from '../../api/userApi'
-import { LineChart, Line, XAxis, YAxis, Tooltip, ReferenceArea, ResponsiveContainer, Text, Legend } from 'recharts';
+import useUserApi from '../../api/useUserApi';
+import { LineChart, Line, XAxis, Tooltip, ReferenceArea, ResponsiveContainer, } from 'recharts';
 import './averageSessions.css'
 
 function Average({id, mock}) {
     const [data, setData] = useState(null)
     const [perc, setPerc] = useState(0);
+    const userApi = useUserApi();
 
     var newSession = {
       day: 8,
@@ -15,15 +16,23 @@ function Average({id, mock}) {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const userData = await userApi(mock).averageSessions(id)
-        userData.sessions.push(newSession)
-        setData(userData.sessions)
+        const userData = await userApi.averageSessions(id)
+        const newData = userData.sessions
+      const sessionExists = newData.some(session => 
+        session.day === newSession.day && session.sessionLength === newSession.sessionLength
+      );
+      if (!sessionExists) {
+        newData.push(newSession);
+      }
+
+      setData(newData);
       } catch (error) {
         console.error(error);
       }
     }
     fetchData();
     },[])
+
 
 
     const TooltipContent = (props) => {

@@ -1,6 +1,6 @@
 import performance from './userPerformance';
-import profil from './userProfil';
-import activity from './userActivity';
+import profil from './userProfil'
+import activity from './userActivity'
 import averageSessions from './userAverageSessions'
 
 const userApi = {
