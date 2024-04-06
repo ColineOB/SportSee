@@ -59,7 +59,7 @@ function Score({id,mock}) {
             <PieChart width={250} height={250} className='score_chart' >
                     <Pie data={round} dataKey="todayScore" cx="50%" cy="50%" outerRadius={70} fill="#FFF" />
                     <Pie data={todayScore} dataKey="todayScore" cx="50%" cy="50%" innerRadius={70} outerRadius={90} fill="#FF0000"  startAngle={90} endAngle={Calcul(todayScore)} cornerRadius={40}>
-                        <LabelList position='centerBottom'  formatter={label} style={{fontSize:'26', fill:'#282D30', height:'26', fontWeight:'700'}} />
+                        <LabelList position='centerBottom'  formatter={label} style={{fontSize:'28', fill:'#282D30', height:'26', fontWeight:'300', stroke:'#282D30'}} />
                     </Pie>
                 </PieChart>
             </ResponsiveContainer>
