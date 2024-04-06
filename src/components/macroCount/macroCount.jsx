@@ -1,33 +1,7 @@
-import React, { PureComponent, useEffect, useState } from 'react';
-import { Calories, Proteines, Glucides, Lipides } from '../../icons';
+import React from 'react';
 import './macroCount.css'
 
-function Macro({name, data}) {
-    const [image, setImage] = useState(null);
-    const [unit, setUnit] = useState(null)
-    
-    useEffect(()=>{
-        switch (name) {
-            case 'Calories':
-                setImage(Calories)
-                setUnit('kCal')
-            break;
-            case 'Proteines':
-                setImage(Proteines)
-                setUnit('g')
-            break;
-            case 'Glucides':
-                setImage(Glucides)
-                setUnit('g')
-            break;
-            case 'Lipides':
-                setImage(Lipides)
-                setUnit('g')
-            break;
-            default:
-                break;
-        }
-    },[name])
+function Macro({name, data, image, unit}) {
     
     return (
         <section className='macro'>

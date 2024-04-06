@@ -6,6 +6,7 @@ import Score from '../components/score/score';
 import { useSearchParams } from 'react-router-dom';
 import useUserApi from '../api/useUserApi';
 import Macro from '../components/macroCount/macroCount';
+import { Calories, Proteines, Glucides, Lipides } from '../icons';
 import '../App.css'
 
 function Profil() {
@@ -48,10 +49,10 @@ function Profil() {
                 </div>
             </div>
             <div className='profil-column'>
-                <Macro name='Calories' data={data.keyData.calorieCount}></Macro>
-                <Macro name='Proteines' data={data.keyData.proteinCount}></Macro>
-                <Macro name='Glucides' data={data.keyData.carbohydrateCount}></Macro>
-                <Macro name='Lipides' data={data.keyData.lipidCount}></Macro>
+                <Macro name='Calories' data={(data.keyData.calorieCount).toLocaleString('en')} image={Calories} unit={'kCal'}></Macro>
+                <Macro name='Proteines' data={data.keyData.proteinCount} image={Proteines} unit={'g'}></Macro>
+                <Macro name='Glucides' data={data.keyData.carbohydrateCount} image={Glucides} unit={'g'}></Macro>
+                <Macro name='Lipides' data={data.keyData.lipidCount} image={Lipides} unit={'g'}></Macro>
             </div>
         </div>
         </>
