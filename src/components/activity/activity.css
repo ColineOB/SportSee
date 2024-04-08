@@ -8,7 +8,7 @@
   .activity h2 {
     width: 200px;
     position: absolute;
-    left: 16%;
+    left: 280px;
     transform: translate(-50%, -50%);
     z-index: 5;
     size: 15px;

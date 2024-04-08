@@ -22,7 +22,7 @@
     opacity: 50%;
     position: absolute;
     top: 10%;
-    left: 30%;
+    left: 120px;
     transform: translate(-50%, -50%);
     z-index: 5;
     size: 15px;

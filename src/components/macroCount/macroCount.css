@@ -28,3 +28,9 @@
     line-height: 24px;
     margin: 2px 0;
 }
+
+@media screen and (max-width: 1025px) {
+    .macro {
+        margin-right: 60px;
+    }
+}

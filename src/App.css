@@ -25,3 +25,19 @@
     width: 25%;
   }
   
+  @media screen and (max-width: 1025px) {
+    .profil {
+      display: flex;
+      flex-direction: column-reverse;
+    }
+
+    .profil-column {
+      flex-direction:row;
+      justify-content: space-around;
+      width: 100%;
+    }
+    .profil-row {
+      width: 100%;
+    }
+
+  }
